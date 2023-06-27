@@ -8,18 +8,12 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 class Cursos(models.Model):
     name = models.CharField(max_length=20)
 
-    def __init__(self, nombre):
-        self.name = nombre
-
     def __str__(self):
         return str(self.name)
 
 
 class Paralelos(models.Model):
     name = models.CharField(max_length=20)
-
-    def __init__(self, nombre):
-        self.name = nombre
 
     def __str__(self):
         return str(self.name)
@@ -36,9 +30,6 @@ class Niveles(models.Model):
                             choices=niveles_choices,
                             default=PRI)
 
-    def __init__(self, nombre):
-        self.name = nombre
-
     def __str__(self):
         return str(self.name)
 
@@ -47,6 +38,9 @@ class CursoParalelo(models.Model):
     curso = models.ForeignKey(Cursos, on_delete=models.PROTECT)
     paralelo = models.ForeignKey(Paralelos, on_delete=models.PROTECT)
     nivel = models.ForeignKey(Niveles, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return "{0} {1} nivel: {2}".format(self.curso, self.paralelo, self.nivel)
 
 
 class Estudiantes(models.Model):
