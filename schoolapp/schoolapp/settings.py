@@ -38,8 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'drf_yasg',
     'estudiantes',
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"]}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,10 +85,10 @@ DATABASES = {
     'default': {
         'ENGINE': config('ENGINE'),
         'NAME': config('PGSQL_DATABASE'),
-        'USER':config('PGSQL_USER'),
-        'PASSWORD':config('PGSQL_PASSWORD'),
-        'HOST':config('PGSQL_HOST'),
-        'PORT':config('PGSQL_PORT'),
+        'USER': config('PGSQL_USER'),
+        'PASSWORD': config('PGSQL_PASSWORD'),
+        'HOST': config('PGSQL_HOST'),
+        'PORT': config('PGSQL_PORT'),
     }
 }
 

@@ -69,4 +69,4 @@ class Materias(models.Model):
     estudiante = models.ForeignKey(Estudiantes, on_delete=models.PROTECT)
 
     def __str__(self):
-        return "Materia: {0}, Nota: {1}, Estado: {2}".format(self.materia, self.nota, self.aprobacion)
+        return "Estudiante: {0}, Materia: {1}, Nota: {2}, Estado: {3}".format(self.estudiante, self.materia, self.nota, self.aprobacion)
