@@ -49,7 +49,7 @@ class Estudiantes(models.Model):
     curso = models.ForeignKey(CursoParalelo, on_delete=models.PROTECT)
 
     def __str__(self):
-        return str(self.inscripcion)
+        return "Estudiante: {0} Curso: {1}".format(self.user, self.curso)
 
 
 class Materias(models.Model):

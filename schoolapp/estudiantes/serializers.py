@@ -41,3 +41,8 @@ class MateriaSerializer (serializers.ModelSerializer):
     class Meta:
         model = Materias
         fields = "__all__"
+
+
+class ReporteMateriaSerializer(serializers.Serializer):
+    cantidad = serializers.IntegerField()
+    materias = MateriaSerializer(many=True)
